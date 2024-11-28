@@ -1,1 +1,13 @@
-これから頑張って作るぞおおおおおお！！
+#!/usr/bin/python3
+# SPDX-FileCopyrightText: 2022 Ryuichi Ueda 　　　　　
+# SPDX-License-Identifier: BSD-3-Clause
+
+import sys
+
+rate = 151.49
+
+print("2024年11月29日3:30のレートを参照しています")
+print( "ドルに変換:", float(sys.argv[1]) * rate )
+
+print("プログラム")
+print("難しい！！")
