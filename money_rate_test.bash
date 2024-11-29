@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pip install yfinance
+
 # 入力引数のチェック
 if [[ $# -eq 0 ]]; then
     echo "エラー: 円の金額を引数として指定してください。" >&2
