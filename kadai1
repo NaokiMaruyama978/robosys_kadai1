@@ -37,5 +37,3 @@ print( "変換結果:",intdoll,"ドル",dollcent ,"セント" )
 print( "変換結果:",inteur,"ユーロ",eurcent,"セント" )
 print( "変換結果:",intwon,"ウォン" ,wonjeon,"チョン")
 
-print("プログラム")
-print("難しい！！")
