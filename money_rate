@@ -6,26 +6,16 @@ import yfinance as yf
 import datetime
 import sys
 
-#try:
-    value = float(sys.argv[1])
+value = float(sys.argv[1])
 
-#except ValueError:
-#    print("エラー:数字ではない値が入力されました。円の金額を正しく入力してください")
-#    sys.exit(1)
-
-#try:
-    # 為替レートを取得
-    ticker = "JPYUSD=X"
-    ticker2 = "JPYEUR=X"
-    ticker3 = "JPYKRW=X"
+# 為替レートを取得
+ticker = "JPYUSD=X"
+ticker2 = "JPYEUR=X"
+ticker3 = "JPYKRW=X"
     
-    fx_rate = yf.Ticker(ticker).history(period="1d").Close[0] #ドル
-    fx_rate2 = yf.Ticker(ticker2).history(period="1d").Close[0] #ユーロ
-    fx_rate3 = yf.Ticker(ticker3).history(period="1d").Close[0] #ウォン
-
-#except Exception as e:
-#    print("エラー:為替データ取得中に予期せぬエラーが発生しました")
-#    sys.exit(1)
+fx_rate = yf.Ticker(ticker).history(period="1d").Close[0] #ドル
+fx_rate2 = yf.Ticker(ticker2).history(period="1d").Close[0] #ユーロ
+fx_rate3 = yf.Ticker(ticker3).history(period="1d").Close[0] #ウォン
 
 now = datetime.datetime.now() # 現在時刻の取得
 today = now.strftime('%Y年%m月%d日%H時%M分') # 現在時刻を年・月・日・時間・分で表示
