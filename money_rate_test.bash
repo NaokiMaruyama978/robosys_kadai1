@@ -1,4 +1,6 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2024 Naoki Maruyama
+# SPDX-License-Identifier: BSD-3-Clause
 
 pip install yfinance
 
