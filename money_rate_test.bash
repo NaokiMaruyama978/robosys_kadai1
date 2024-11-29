@@ -15,7 +15,7 @@ if ! [[ $1 =~ ^[0-9]+$ ]]; then
 fi
 
 # Pythonスクリプトの実行
-./money_rate "$1"
+./money_rate 1000 "$1"
 
 # Pythonの実行が成功したか確認
 if [[ $? -ne 0 ]]; then
