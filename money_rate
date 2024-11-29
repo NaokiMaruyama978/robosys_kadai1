@@ -1,20 +1,31 @@
 #!/usr/bin/python3
-# SPDX-FileCopyrightText: 2022 Ryuichi Ueda 　　　　　
+# SPDX-FileCopyrightText: 2024 Naoki Maruyama
 # SPDX-License-Identifier: BSD-3-Clause
 
 import yfinance as yf
 import datetime
+import sys
 
-value = input("変換したい日本円(所持金)を入力してください:")
-value = float(value)
+#try:
+    value = float(sys.argv[1])
 
-# 為替レートを取得
-ticker = "JPYUSD=X"
-ticker2 = "JPYEUR=X"
-ticker3 = "JPYKRW=X"
-fx_rate = yf.Ticker(ticker).history(period="1d").Close[0] #ドル
-fx_rate2 = yf.Ticker(ticker2).history(period="1d").Close[0] #ユーロ
-fx_rate3 = yf.Ticker(ticker3).history(period="1d").Close[0] #ウォン
+#except ValueError:
+#    print("エラー:数字ではない値が入力されました。円の金額を正しく入力してください")
+#    sys.exit(1)
+
+#try:
+    # 為替レートを取得
+    ticker = "JPYUSD=X"
+    ticker2 = "JPYEUR=X"
+    ticker3 = "JPYKRW=X"
+    
+    fx_rate = yf.Ticker(ticker).history(period="1d").Close[0] #ドル
+    fx_rate2 = yf.Ticker(ticker2).history(period="1d").Close[0] #ユーロ
+    fx_rate3 = yf.Ticker(ticker3).history(period="1d").Close[0] #ウォン
+
+#except Exception as e:
+#    print("エラー:為替データ取得中に予期せぬエラーが発生しました")
+#    sys.exit(1)
 
 now = datetime.datetime.now() # 現在時刻の取得
 today = now.strftime('%Y年%m月%d日%H時%M分') # 現在時刻を年・月・日・時間・分で表示
@@ -31,6 +42,7 @@ eurcent =  round((((value * fx_rate2) - inteur) * 100))#結果から整数値を
 won = round(value * fx_rate3,2) #小数点第3位以下を丸める
 intwon = int(won) #結果の整数部分を抜き出す
 wonjeon = round((((value * fx_rate3) - intwon) * 100))#結果から整数値を引き100掛ける事でjeon(チョン)に変換
+
 # 結果を表示
 print(str(today),"のレートを参照しています")
 print( "変換結果:",intdoll,"ドル",dollcent ,"セント" )
