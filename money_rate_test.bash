@@ -2,7 +2,6 @@
 # SPDX-FileCopyrightText: 2024 Naoki Maruyama
 # SPDX-License-Identifier: BSD-3-Clause
 
-pip install yfinance
 
 # 入力引数のチェック
 if [[ $# -eq 0 ]]; then
@@ -19,16 +18,10 @@ if ! [[ $1 =~ ^[0-9]+$ ]]; then
 fi
 
 # Pythonのyfinanceモジュールがインストールされているか確認
-python -c "import yfinance" &> /dev/null
-
-if [[ $? -ne 0 ]]; then
-    echo "yfinanceがインストールされていません。インストールします..."
+if ! python3 -c "import yfinance" &> /dev/null; then
+    echo "yfinanceがインストールされていません。インストールします"
     pip install yfinance
 
-    if [[ $? -ne 0 ]]; then
-        echo "エラー: yfinanceのインストールに失敗しました。" >&2
-        exit 1
-    fi
 fi
 
 # Pythonスクリプトの実行
