@@ -23,13 +23,38 @@ $ https://github.com/NaokiMaruyama978/robosys_kadai1.git
 ```
 $ chmod +x money_rate
 ```
-##### 方法1：実行と入力
+##### 方法1：実行と引数の入力
 ```
 $ ./money_rate 引数
 
+#### 方法2：|(パイプ)を使用する
+$ echo 引数 | ./money_rate 
 
+###実行例
 
+$ ./money_rate 1000
+2024年11月30日17時45分 のレートを参照しています
+変換結果: 6 ドル 61 セント
+変換結果: 6 ユーロ 26 セント
+変換結果: 9215 ウォン 86 チョン
 
+$ echo 1000 | ./money_rate 
+変換結果: 6 ドル 61 セント
+変換結果: 6 ユーロ 26 セント
+変換結果: 9215 ウォン 86 チョン
 
+## 動作環境  
+### 必要なソフトウェア
+- Python
+  - テスト済みバージョン3.7~3.12
 
+### テスト環境
+- Ubuntu 22.04 LTS
+
+## ライセンス
+- このリポジトリはBSD-3-Clauseライセンスの下で公開されています。
+- 詳細は[LICENSE](https://github.com/JEISU20xx/robosys2024/blob/main/LICENSE)を確認してください。
+
+## Copyright  
+© 2024 Naoki Maruyama
 
