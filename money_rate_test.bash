@@ -26,7 +26,7 @@ fi
 
 # Pythonスクリプトの実行
 ./money_rate 1000 "$1"
-
+echo 1000 | ./money_rate  "$1"
 # Pythonの実行が成功したか確認
 if [[ $? -ne 0 ]]; then
     echo "エラー: Pythonスクリプトの実行に失敗しました。" >&2
