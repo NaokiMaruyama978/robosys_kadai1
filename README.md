@@ -1,4 +1,5 @@
 # robosys_kadai1
+![test](https://github.com/NaokiMaruyama978/robosys_kadai1/actions/workflows/test.yml/badge.svg)
 
 ## このリポジトリについて
 大学の講義(ロボットシステム学)で作成したものです。  
@@ -58,8 +59,6 @@ $ chmod +x money_rate
   - テスト済みバージョン3.7~3.12
 ### テスト環境
 - Ubuntu 22.04 LTS
-# plusコマンド
-![test](https://github.com/NaokiMaruyama978/robosys_kadai1/actions/workflows/test.yml/badge.svg)
 
 ## ライセンス
 - このリポジトリはBSD-3-Clauseライセンスの下で公開されています。
