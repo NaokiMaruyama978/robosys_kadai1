@@ -11,8 +11,8 @@ money_rateコマンドを作成しました。
 $ https://github.com/NaokiMaruyama978/robosys_kadai1.git
 、、、
 
-## money_rateコマンド
-###概要
+## money_rateコマンド 
+### 概要
  - 入力された値(日本円)をドルとセント・ユーロとセント・ウォンとチョンに変換します
  - 半角でも全角でも変換されます
  - 対応してない文字や記号が入力された場合はエラー文と入力例が出ます
@@ -23,6 +23,9 @@ $ https://github.com/NaokiMaruyama978/robosys_kadai1.git
 ```
 $ chmod +x money_rate
 ```
+### 
+以下のコマンドでインストールをして下さい
+$ pip install yfinance
 ##### 方法1：実行と引数の入力
 ```
 $ ./money_rate 引数
