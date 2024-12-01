@@ -21,8 +21,8 @@ fi
 if ! python3 -c "import yfinance" &> /dev/null; then
     echo "yfinanceがインストールされていません。インストールします"
     pip install yfinance
-
 fi
+
 
 # Pythonスクリプトの実行
 ./money_rate 1000 "$1"
