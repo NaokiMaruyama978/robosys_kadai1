@@ -25,24 +25,24 @@ $ chmod +x money_rate
 ```
 ### Pythonのyfinanceモジュールがインストールされていない場合
 以下のコマンドでインストールをして下さい
-$ pip install yfinance
+ - $ pip install yfinance
 
 ##### 方法1：実行と引数の入力
 ```
-$ ./money_rate 引数
+ - $ ./money_rate 引数
 
 #### 方法2：|(パイプ)を使用する
-$ echo 引数 | ./money_rate 
+ - $ echo 引数 | ./money_rate 
 
 ###実行例
 
-$ ./money_rate 1000
+ - $ ./money_rate 1000
 2024年11月30日17時45分 のレートを参照しています
 変換結果: 6 ドル 61 セント
 変換結果: 6 ユーロ 26 セント
 変換結果: 9215 ウォン 86 チョン
 
-$ echo 1000 | ./money_rate 
+ - $ echo 1000 | ./money_rate 
 変換結果: 6 ドル 61 セント
 変換結果: 6 ユーロ 26 セント
 変換結果: 9215 ウォン 86 チョン
