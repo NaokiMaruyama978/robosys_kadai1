@@ -8,7 +8,7 @@ money_rateコマンドを作成しました。
 ## クローン方法
 以下のコマンドでリポジトリをクローンしてください。
 、、、
-$ https://github.com/NaokiMaruyama978/robosys_kadai1.git
+ $ https://github.com/NaokiMaruyama978/robosys_kadai1.git
 、、、
 
 ## money_rateコマンド 
