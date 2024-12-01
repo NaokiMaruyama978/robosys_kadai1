@@ -17,6 +17,12 @@ if ! [[ $1 =~ ^[0-9]+$ ]]; then
     exit 1
 fi
 
+# Pythonのyfinanceモジュールがインストールされているか確認
+if ! python3 -c "import yfinance" &> /dev/null; then
+    echo "yfinanceがインストールされていません。インストールします"
+    pip install yfinance
+
+fi
 
 # Pythonスクリプトの実行
 ./money_rate 1000 "$1"
