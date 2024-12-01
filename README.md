@@ -23,9 +23,10 @@ $ https://github.com/NaokiMaruyama978/robosys_kadai1.git
 ```
 $ chmod +x money_rate
 ```
-### 
+### Pythonのyfinanceモジュールがインストールされていない場合
 以下のコマンドでインストールをして下さい
 $ pip install yfinance
+
 ##### 方法1：実行と引数の入力
 ```
 $ ./money_rate 引数
