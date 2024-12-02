@@ -20,7 +20,7 @@ fi
 # Pythonのyfinanceモジュールがインストールされているか確認
 if ! python3 -c "import yfinance" &> /dev/null; then
     echo "yfinanceがインストールされていません。インストールします"
-    pip install yfinance
+    pip3 install yfinance
 fi
 
 
