@@ -53,7 +53,7 @@ Required-by:
 ```
 WARNING: Package(s) not found: yfinance
 ```
-この様な表示が出る又は何も表示されません
+この様な表示が出るか何も表示されません
 
 ## Pythonのyfinanceモジュールがインストールされていない場合
 以下のコマンドでインストールをして下さい
