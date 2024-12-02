@@ -14,10 +14,20 @@ money_rateコマンドを作成しました。
  - 何年/何月/何日/何時/何分時点のレートか表示されます
 
 ### 実行方法
-## クローン
-以下のコマンドでリポジトリをクローンしてください。
+## リポジトリのクローン
+GitHub リポジトリからクローンします。
+
+```
+$ git clone git@github.com:NaokiMaruyama978/robosys_kadai1.git
+```
+
+GitHub アカウントがない場合は HTTPS を使用：
 ```
 $ git clone https://github.com/NaokiMaruyama978/robosys_kadai1.git
+```
+## ディレクトリに移動
+```
+$ cd robosys_kadai1
 ```
 ## 実行権限の付与
 以下のコマンドで実行権限の付与してください。
