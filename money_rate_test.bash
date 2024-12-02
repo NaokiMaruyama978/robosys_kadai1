@@ -20,7 +20,6 @@ if [[ $? -ne 0 ]]; then
     pip3 install yfinance
 fi
 
-
 res=0
 #正常な入力
 #半角の数字
