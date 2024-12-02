@@ -35,16 +35,19 @@ fi
 
 echo "テスト完了です。" >&1
 
+#######################################################あ
+
 ng () {
 	echo ${1}行目が違うよ
 	res=1
 }
 
 res=0
+#正常な入力
 out=$(echo 5 | ./money_rate)
 [ "${out}" = 15 ] || ng "$LINENO"
 
-<<<<<<< HEAD
+#異常な入力
 out=$(echo あ | ./money_rate)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
