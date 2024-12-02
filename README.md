@@ -33,6 +33,28 @@ $ cd robosys_kadai1
 ```
 $ chmod +x money_rate
 ```
+## yfinanceモジュールがインストールされているかの確認方法
+以下のコマンドで確認してください
+```
+pip3 show yfinance
+```
+### インストールされている場合
+```
+Name: yfinance
+Version: 0.2.50
+Summary: Download market data from Yahoo! Finance API
+.
+.
+.
+Required-by:
+```
+の様な表示が出ます
+###インストールされてない場合
+```
+WARNING: Package(s) not found: yfinance
+```
+又は何も表示されません
+
 ## Pythonのyfinanceモジュールがインストールされていない場合
 以下のコマンドでインストールをして下さい
 ```
