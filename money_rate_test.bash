@@ -8,9 +8,9 @@ ng () {
 }
 
 # 固定レートを設定
-export TEST_RATE_JPYUSD=X=1.23551
-export TEST_RATE_JPYEUR=X=0.56523
-export TEST_RATE_JPYKRW=X=13.54225
+export TEST_RATE_JPYUSD=1.23551
+export TEST_RATE_JPYEUR=0.56523
+export TEST_RATE_JPYKRW=13.54225
 
 # yfinanceモジュールがインストールされているか確認
 python3 -c "import yfinance" &> /dev/null
