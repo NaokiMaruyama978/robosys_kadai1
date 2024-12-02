@@ -13,8 +13,8 @@ money_rateコマンドを作成しました。
  - 対応してない文字や記号が入力された場合はエラー文と入力例が出ます
  - 何年/何月/何日/何時/何分時点のレートか表示されます
 
-### 実行方法
-## リポジトリのクローン
+## 実行方法
+# リポジトリのクローン
 GitHub リポジトリからクローンします。
 
 ```
@@ -25,16 +25,16 @@ GitHub アカウントがない場合は HTTPS を使用：
 ```
 $ git clone https://github.com/NaokiMaruyama978/robosys_kadai1.git
 ```
-## ディレクトリに移動
+# ディレクトリに移動
 ```
 $ cd robosys_kadai1
 ```
-## 実行権限の付与
+# 実行権限の付与
 以下のコマンドで実行権限の付与してください。
 ```
 $ chmod +x money_rate
 ```
-## Pythonのyfinanceモジュールがインストールされていない場合
+# Pythonのyfinanceモジュールがインストールされていない場合
 以下のコマンドでインストールをして下さい
 ```
  $ pip install yfinance
