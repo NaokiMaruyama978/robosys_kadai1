@@ -6,12 +6,6 @@
 日本円をドル・ユーロ・ウォンに変換する
 money_rateコマンドを作成しました。
 
-## クローン方法
-以下のコマンドでリポジトリをクローンしてください。
-```
-$ git clone https://github.com/NaokiMaruyama978/robosys_kadai1.git
-```
-
 ## money_rateコマンド 
 ## 概要
  - 入力された値(日本円)をドルとセント・ユーロとセント・ウォンとチョンに変換します
@@ -20,7 +14,13 @@ $ git clone https://github.com/NaokiMaruyama978/robosys_kadai1.git
  - 何年/何月/何日/何時/何分時点のレートか表示されます
 
 ### 実行方法
-## はじめに実行権限を付与してください
+## クローン
+以下のコマンドでリポジトリをクローンしてください。
+```
+$ git clone https://github.com/NaokiMaruyama978/robosys_kadai1.git
+```
+## 実行権限の付与
+以下のコマンドで実行権限の付与してください。
 ```
 $ chmod +x money_rate
 ```
