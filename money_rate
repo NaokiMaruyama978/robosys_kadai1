@@ -6,15 +6,21 @@ import yfinance as yf
 import datetime
 import sys
 
+def get_fx_rate(ticker):
+    # money_rate_test.bashからレートを取得
+    import os
+    test_rate = os.getenv(f"TEST_RATE_{ticker}")
+    if test_rate:
+        return float(test_rate)
+
+    # 通常の為替レート取得
+    return yf.Ticker(ticker).history(period="1d").Close[0]
+
 def main(value):
-    # 為替レートを取得
-    ticker = "JPYUSD=X"
-    ticker2 = "JPYEUR=X"
-    ticker3 = "JPYKRW=X"
     
-    fx_rate = yf.Ticker(ticker).history(period="1d").Close[0] #ドル
-    fx_rate2 = yf.Ticker(ticker2).history(period="1d").Close[0] #ユーロ
-    fx_rate3 = yf.Ticker(ticker3).history(period="1d").Close[0] #ウォン
+    fx_rate = 1.2355 #get_fx_rate("JPYUSD=X") #ドル
+    fx_rate2 = 0.5632 #get_fx_rate("JPYEUR=X") #ユーロ
+    fx_rate3 = 13.542 #get_fx_rate("JPYKRW=X") #ウォン
 
     now = datetime.datetime.now() # 現在時刻の取得
     today = now.strftime('%Y年%m月%d日%H時%M分') # 現在時刻を年・月・日・時間・分で表示
@@ -36,7 +42,7 @@ def main(value):
     print ("{}ドル {}セント".format(intdoll,dollcent))
     print ("{}ユーロ {}セント".format(inteur,eurcent))
     print ("{}ウォン {}チョン".format(intwon,wonjeon))
-
+    print ("{}, {},{}".format(fx_rate,fx_rate2,fx_rate3))
 
 if not sys.stdin.isatty():
     value = float(sys.stdin.readline().strip())
