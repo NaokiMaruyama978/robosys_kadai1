@@ -22,9 +22,6 @@ def main(value):
     fx_rate2 = 0.56523 #get_fx_rate("JPYEUR=X") #ユーロ
     fx_rate3 = 13.54225 #get_fx_rate("JPYKRW=X") #ウォン
 
-    now = datetime.datetime.now() # 現在時刻の取得
-    today = now.strftime('%Y年%m月%d日%H時%M分') # 現在時刻を年・月・日・時間・分で表示
-
     doll = round(value * fx_rate,2) #小数点第3位以下を丸める
     intdoll = int(doll) #結果の整数部分を抜き出す
     dollcent = round((((value * fx_rate) - intdoll) * 100)) #結果から整数値を引き100掛ける事でセントに変換
@@ -37,7 +34,6 @@ def main(value):
     intwon = int(won) #結果の整数部分を抜き出す
     wonjeon = round((((value * fx_rate3) - intwon) * 100))#結果から整数値を引き100掛ける事でjeon(チョン)に変換
     # 結果を表示
-    #print ("{}のレートを参照しています".format(str(today)))
     print ("{}ドル {}セント".format(intdoll,dollcent))
     print ("{}ユーロ {}セント".format(inteur,eurcent))
     print ("{}ウォン {}チョン".format(intwon,wonjeon))
