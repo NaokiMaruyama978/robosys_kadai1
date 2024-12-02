@@ -3,37 +3,11 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 
-# 入力引数のチェック
-if [[ $# -eq 0 ]]; then
-    echo "エラー: 円の金額を引数として指定してください。" >&2
-    echo "使用例: ./money_rate_test.bash 1000" >&2
-    exit 1
-fi
-
-# 入力値が数値かどうかを確認
-if ! [[ $1 =~ ^[0-9]+$ ]]; then
-    echo "エラー: 引数には数字を入力してください。" >&2
-    echo "使用例:  ./money_rate_test.bash 1000" >&2
-    exit 1
-fi
-
 # Pythonのyfinanceモジュールがインストールされているか確認
-if ! python3 -c "import yfinance" &> /dev/null; then
-    echo "yfinanceがインストールされていません。インストールします"
-    pip3 install yfinance
-fi
-
-
-# Pythonスクリプトの実行
-./money_rate 1000 "$1"
-echo 1000 | ./money_rate  "$1"
-# Pythonの実行が成功したか確認
-if [[ $? -ne 0 ]]; then
-    echo "エラー: Pythonスクリプトの実行に失敗しました。" >&2
-    exit 1
-fi
-
-echo "テスト完了です。" >&1
+#if ! python3 -c "import yfinance" &> /dev/null; then
+#    echo "yfinanceがインストールされていません。インストールします"
+#    pip3 install yfinance
+#fi
 
 #######################################################あ
 
@@ -51,55 +25,55 @@ res=0
 #正常な入力
 #半角の数字
 out=$(echo 1000 | ./money_rate)
-[ "$?" = 0 ] || ng "$LINENO"
-echo "$out" | grep -q "1235 ドル 51セント" || ng "$LINENO"
-echo "$out" | grep -q "565 ユーロ 23セント" || ng "$LINENO"
-echo "$out" | grep -q "13542 ウォン 25チョン" || ng "$LINENO"
+result="1235ドル 51セント
+565ユーロ 23セント
+13542ウォン 25チョン"
+[ "${out}" = "${result}" ] || ng "$LINENO"
 
 out=$(echo 0 | ./money_rate)
-[ "$?" = 0 ] || ng "$LINENO"
-echo "$out" | grep -q "0 ドル 0セント" || ng "$LINENO"
-echo "$out" | grep -q "0 ユーロ 0セント" || ng "$LINENO"
-echo "$out" | grep -q "0 ウォン 0チョン" || ng "$LINENO"
+result="0ドル 0セント
+0ユーロ 0セント
+0ウォン 0チョン"
+[ "${out}" = "${result}" ] || ng "$LINENO"
 
 #計算結果小数第3位が5以上だと繰り上げられる
 out=$(echo 1 | ./money_rate)
-[ "$?" = 0 ] || ng "$LINENO"
-echo "$out" | grep -q "1 ドル 24セント" || ng "$LINENO"
-echo "$out" | grep -q "0 ユーロ 57セント" || ng "$LINENO"
-echo "$out" | grep -q "13 ウォン 54チョン" || ng "$LINENO"
+result="1ドル 24セント
+0ユーロ 57セント
+13ウォン 54チョン"
+[ "${out}" = "${result}" ] || ng "$LINENO"
 
 out=$(echo 11 | ./money_rate)
-[ "$?" = 0 ] || ng "$LINENO"
-echo "$out" | grep -q "13 ドル 59セント" || ng "$LINENO"
-echo "$out" | grep -q "6 ユーロ 22セント" || ng "$LINENO"
-echo "$out" | grep -q "148 ウォン 96チョン" || ng "$LINENO"
+result="13ドル 59セント
+6ユーロ 22セント
+148ウォン 96チョン"
+[ "${out}" = "${result}" ] || ng "$LINENO"
 
 #全角の数字
 out=$(echo １０００ | ./money_rate)
-[ "$?" = 0 ] || ng "$LINENO"
-echo "$out" | grep -q "1235 ドル 51セント" || ng "$LINENO"
-echo "$out" | grep -q "565 ユーロ 23セント" || ng "$LINENO"
-echo "$out" | grep -q "13542 ウォン 25チョン" || ng "$LINENO"
+result="1235ドル 51セント
+565ユーロ 23セント
+13542ウォン 25チョン"
+[ "${out}" = "${result}" ] || ng "$LINENO"
 
 out=$(echo ０ | ./money_rate)
-[ "$?" = 0 ] || ng "$LINENO"
-echo "$out" | grep -q "0 ドル 0セント" || ng "$LINENO"
-echo "$out" | grep -q "0 ユーロ 0セント" || ng "$LINENO"
-echo "$out" | grep -q "0 ウォン 0チョン" || ng "$LINENO"
+result="0ドル 0セント
+0ユーロ 0セント
+0ウォン 0チョン"
+[ "${out}" = "${result}" ] || ng "$LINENO"
 
 #計算結果小数第3位が5以上だと繰り上げられる
 out=$(echo １ | ./money_rate)
-[ "$?" = 0 ] || ng "$LINENO"
-echo "$out" | grep -q "1 ドル 24セント" || ng "$LINENO"
-echo "$out" | grep -q "0 ユーロ 57セント" || ng "$LINENO"
-echo "$out" | grep -q "13 ウォン 54チョン" || ng "$LINENO"
+result="1ドル 24セント
+0ユーロ 57セント
+13ウォン 54チョン"
+[ "${out}" = "${result}" ] || ng "$LINENO"
 
 out=$(echo １１ | ./money_rate)
-[ "$?" = 0 ] || ng "$LINENO"
-echo "$out" | grep -q "13 ドル 59セント" || ng "$LINENO"
-echo "$out" | grep -q "6 ユーロ 22セント" || ng "$LINENO"
-echo "$out" | grep -q "148 ウォン 96チョン" || ng "$LINENO"
+result="13ドル 59セント
+6ユーロ 22セント
+148ウォン 96チョン"
+[ "${out}" = "${result}" ] || ng "$LINENO"
 
 #異常な入力
 #文字
@@ -122,6 +96,6 @@ out=$(echo 1.1 | ./money_rate)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
-["$res" = 0 ] && echo OK
+["$res" = 0 ] && echo "OK"
 
 exit $res
