@@ -37,7 +37,7 @@ $ chmod +x money_rate
 ## Pythonのyfinanceモジュールがインストールされていない場合
 以下のコマンドでインストールをして下さい
 ```
- $ pip install yfinance
+ $ pip3 install yfinance
 ```
 ## 実行例
 ```
