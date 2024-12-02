@@ -7,7 +7,7 @@ import datetime
 import sys
 
 def get_fx_rate(ticker):
-    # money_rate_test.bashからレートを取得
+    # money_rate_test.bashからレート値を取得
     import os
     test_rate = os.getenv(f"TEST_RATE_{ticker}")
     if test_rate:
