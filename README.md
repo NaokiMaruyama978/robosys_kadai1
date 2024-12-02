@@ -29,10 +29,6 @@ $ chmod +x money_rate
 ```
  $ pip install yfinance
 ```
-### 方法1：実行と引数の入力
-```
- $ ./money_rate 引数
-```
 ### 方法2：|(パイプ)を使用する
 ```
   $ echo 引数 | ./money_rate
