@@ -37,18 +37,11 @@ def main(value):
     print( "変換結果:",inteur,"ユーロ",eurcent,"セント" )
     print( "変換結果:",intwon,"ウォン" ,wonjeon,"チョン")
 
-try:
-    if not sys.stdin.isatty():
-        value = float(sys.stdin.readline().strip())
 
-    elif len(sys.argv) > 1 :
-        value = float(sys.argv[1])
-
-    else:
-        print("エラー: 引数が指定されていません。")
-
+if not sys.stdin.isatty():
+    value = float(sys.stdin.readline().strip())
     main(value)
-except:
-        print("エラー: 入力形式が違います")
-        print("入力例: ./money_rate 1000 又は echo 1000 | ./money_rate")
-        sys.exit(1)
+
+elif len(sys.argv) > 1 :
+    value = float(sys.argv[1])
+    main(value)
