@@ -18,13 +18,12 @@ def get_fx_rate(ticker):
 
 def main(value):
     
-    fx_rate = 1.2355 #get_fx_rate("JPYUSD=X") #ドル
-    fx_rate2 = 0.5632 #get_fx_rate("JPYEUR=X") #ユーロ
-    fx_rate3 = 13.542 #get_fx_rate("JPYKRW=X") #ウォン
+    fx_rate = 1.23551 #get_fx_rate("JPYUSD=X") #ドル
+    fx_rate2 = 0.56523 #get_fx_rate("JPYEUR=X") #ユーロ
+    fx_rate3 = 13.54225 #get_fx_rate("JPYKRW=X") #ウォン
 
     now = datetime.datetime.now() # 現在時刻の取得
     today = now.strftime('%Y年%m月%d日%H時%M分') # 現在時刻を年・月・日・時間・分で表示
-    #date = datetime.datetime.now()
 
     doll = round(value * fx_rate,2) #小数点第3位以下を丸める
     intdoll = int(doll) #結果の整数部分を抜き出す
@@ -45,9 +44,19 @@ def main(value):
     print ("{}, {},{}".format(fx_rate,fx_rate2,fx_rate3))
 
 if not sys.stdin.isatty():
-    value = float(sys.stdin.readline().strip())
-    main(value)
+    try:
+        value = float(sys.stdin.readline().strip())
+        if value >= 0 and value - int(value) == 0 :
+            main(value)
+        else:
+            sys.exit(1)
+    except:
+        sys.exit(1)
 
-elif len(sys.argv) > 1 :
-    value = float(sys.argv[1])
-    main(value)
+elif len(sys.argv) >= 0 :
+    try:
+        value = float(sys.argv[1])
+        if value - int(value) == 0 :
+            main(value)
+    except:
+        sys.exit(1)
