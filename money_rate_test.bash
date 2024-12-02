@@ -96,6 +96,6 @@ out=$(echo 1.1 | ./money_rate)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
-["$res" = 0 ] && echo "OK"
+[ "$res" = 0 ] && echo "OK"
 
 exit $res
