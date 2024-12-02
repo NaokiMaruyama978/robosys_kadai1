@@ -2,15 +2,6 @@
 # SPDX-FileCopyrightText: 2024 Naoki Maruyama
 # SPDX-License-Identifier: BSD-3-Clause
 
-
-# Pythonのyfinanceモジュールがインストールされているか確認
-#if ! python3 -c "import yfinance" &> /dev/null; then
-#    echo "yfinanceがインストールされていません。インストールします"
-#    pip3 install yfinance
-#fi
-
-#######################################################あ
-
 ng () {
 	echo ${1}行目が違うよ
 	res=1
