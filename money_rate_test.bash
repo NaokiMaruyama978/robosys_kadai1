@@ -34,3 +34,25 @@ if [[ $? -ne 0 ]]; then
 fi
 
 echo "テスト完了です。" >&1
+
+ng () {
+	echo ${1}行目が違うよ
+	res=1
+}
+
+res=0
+out=$(echo 5 | ./money_rate)
+[ "${out}" = 15 ] || ng "$LINENO"
+
+<<<<<<< HEAD
+out=$(echo あ | ./money_rate)
+[ "$?" = 1 ] || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
+
+out=$(echo | ./money_rate)
+[ "$?" = 1 ] || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
+
+["$res" = 0 ] && echo OK
+
+exit $res
