@@ -12,6 +12,15 @@ export TEST_RATE_JPYUSD=X=1.23551
 export TEST_RATE_JPYEUR=X=0.56523
 export TEST_RATE_JPYKRW=X=13.54225
 
+# yfinanceモジュールがインストールされているか確認
+python3 -c "import yfinance" &> /dev/null
+
+if [[ $? -ne 0 ]]; then
+    echo "yfinanceがインストールされていません。インストールします..."
+    pip3 install yfinance
+fi
+
+
 res=0
 #正常な入力
 #半角の数字
