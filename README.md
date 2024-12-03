@@ -72,7 +72,7 @@ WARNING: Package(s) not found: yfinance
 ## 動作環境  
 ### 必要なソフトウェア
 - Python
-  - テスト済みバージョン3.7~3.10
+  - テスト済みバージョン3.7～3.10
 ### テスト環境
 - Ubuntu 22.04 LTS
 
