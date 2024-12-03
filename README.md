@@ -33,6 +33,11 @@ $ cd robosys_kadai1
 ```
 $ chmod +x money_rate
 ```
+## Pythonのyfinanceモジュールがインストールされていない場合
+以下のコマンドでインストールをして下さい
+```
+ $ pip3 install yfinance
+```
 ## yfinanceモジュールがインストールされているかの確認方法
 以下のコマンドで確認してください
 ```
@@ -48,18 +53,14 @@ Summary: Download market data from Yahoo! Finance API
 .
 Required-by:
 ```
-この様な表示が出ます
+上記のような表示が出ます
 ### インストールされていない場合
 ```
 WARNING: Package(s) not found: yfinance
 ```
-この様な表示が出るか何も表示されません
+上記のような表示が出るか何も表示されません
 
-## Pythonのyfinanceモジュールがインストールされていない場合
-以下のコマンドでインストールをして下さい
-```
- $ pip3 install yfinance
-```
+
 ## 実行例
 ```
  $ echo 1000 | ./money_rate
