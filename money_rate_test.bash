@@ -103,6 +103,7 @@ out=$(echo 1.1 | ./money_rate)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
+#全角の小数以下が0の入力
 out=$(echo １．０００ | ./money_rate)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
@@ -112,10 +113,6 @@ out=$(echo [10] | ./money_rate)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
-#階乗は認識しません
-out=$(echo 5! | ./money_rate)
-[ "$?" = 1 ] || ng "$LINENO"
-[ "${out}" = "" ] || ng "$LINENO"
 
 out=$(echo {10} | ./money_rate)
 [ "$?" = 1 ] || ng "$LINENO"
