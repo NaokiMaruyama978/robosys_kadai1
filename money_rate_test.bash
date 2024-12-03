@@ -23,59 +23,59 @@ fi
 res=0
 ###正常な入力###
 ##半角の数字##
-out=$(echo 1000 | ./money_rate)
+out=$(echo 1000 | ./exchange_rate)
 result="1235ドル 51セント
 565ユーロ 23セント
 13542ウォン 25チョン"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
-out=$(echo 0 | ./money_rate)
+out=$(echo 0 | ./exchange_rate)
 result="0ドル 0セント
 0ユーロ 0セント
 0ウォン 0チョン"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
 #計算結果小数第3位が5以上だと繰り上げられる
-out=$(echo 1 | ./money_rate)
+out=$(echo 1 | ./exchange_rate)
 result="1ドル 24セント
 0ユーロ 57セント
 13ウォン 54チョン"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
-out=$(echo 11 | ./money_rate)
+out=$(echo 11 | ./exchange_rate)
 result="13ドル 59セント
 6ユーロ 22セント
 148ウォン 96チョン"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
 #小数以下0の入力
-out=$(echo 1.000 | ./money_rate)
+out=$(echo 1.000 | ./exchange_rate)
 result="1ドル 24セント
 0ユーロ 57セント
 13ウォン 54チョン"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
 ##全角の数字##
-out=$(echo １０００ | ./money_rate)
+out=$(echo １０００ | ./exchange_rate)
 result="1235ドル 51セント
 565ユーロ 23セント
 13542ウォン 25チョン"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
-out=$(echo ０ | ./money_rate)
+out=$(echo ０ | ./exchange_rate)
 result="0ドル 0セント
 0ユーロ 0セント
 0ウォン 0チョン"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
 #計算結果小数第3位が5以上だと繰り上げられる
-out=$(echo １ | ./money_rate)
+out=$(echo １ | ./exchange_rate)
 result="1ドル 24セント
 0ユーロ 57セント
 13ウォン 54チョン"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
-out=$(echo １１ | ./money_rate)
+out=$(echo １１ | ./exchange_rate)
 result="13ドル 59セント
 6ユーロ 22セント
 148ウォン 96チョン"
@@ -84,36 +84,36 @@ result="13ドル 59セント
 
 ####異常な入力###
 #文字
-out=$(echo あ | ./money_rate)
+out=$(echo あ | ./exchange_rate)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
 #空白
-out=$(echo | ./money_rate)
+out=$(echo | ./exchange_rate)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
 #マイナスの値
-out=$(echo -1 | ./money_rate)
+out=$(echo -1 | ./exchange_rate)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
 #小数の入力(円の値を入力してほしいので小数はプログラムの趣旨的に異常な入力)
-out=$(echo 1.1 | ./money_rate)
+out=$(echo 1.1 | ./exchange_rate)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
 #全角の小数以下が0の入力
-out=$(echo １．０００ | ./money_rate)
+out=$(echo １．０００ | ./exchange_rate)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
 #記号と数字
-out=$(echo [10] | ./money_rate)
+out=$(echo [10] | ./exchange_rate)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
-out=$(echo {10} | ./money_rate)
+out=$(echo {10} | ./exchange_rate)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
