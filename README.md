@@ -79,6 +79,4 @@ WARNING: Package(s) not found: yfinance
 ## ライセンス
 - このリポジトリはBSD-3-Clauseライセンスの下で公開されています。
 - 詳細は[LICENSE](https://github.com/NaokiMaruyama978/robosys_kadai1/blob/master/LICENSE)を確認してください。
-
-## Copyright  
 © 2024 Naoki Maruyama
