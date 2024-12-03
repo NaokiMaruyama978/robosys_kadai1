@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # robosys_kadai1
 =======
 # robosys_kadai1
@@ -84,5 +83,3 @@ WARNING: Package(s) not found: yfinance
 
 ## Copyright  
 © 2024 Naoki Maruyama
-
->>>>>>> 404d1375ffacce7e6373085baf6b0cfa0d0fe7ce
