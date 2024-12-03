@@ -18,9 +18,9 @@ def get_fx_rate(ticker):
 
 def main(value):
     
-    fx_rate = get_fx_rate("JPYUSD") #ドル
-    fx_rate2 = get_fx_rate("JPYEUR") #ユーロ
-    fx_rate3 = get_fx_rate("JPYKRW") #ウォン
+    fx_rate = 1.23551#get_fx_rate("JPYUSD") #ドル
+    fx_rate2 = 0.56523#get_fx_rate("JPYEUR") #ユーロ
+    fx_rate3 = 13.54225#get_fx_rate("JPYKRW") #ウォン
 
     doll = round(value * fx_rate,2) #小数点第3位以下を丸める
     intdoll = int(doll) #結果の整数部分を抜き出す

@@ -21,8 +21,8 @@ if [[ $? -ne 0 ]]; then
 fi
 
 res=0
-#正常な入力
-#半角の数字
+###正常な入力###
+##半角の数字##
 out=$(echo 1000 | ./money_rate)
 result="1235ドル 51セント
 565ユーロ 23セント
@@ -48,7 +48,14 @@ result="13ドル 59セント
 148ウォン 96チョン"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
-#全角の数字
+#小数以下0の入力
+out=$(echo 1.000 | ./money_rate)
+result="1ドル 24セント
+0ユーロ 57セント
+13ウォン 54チョン"
+[ "${out}" = "${result}" ] || ng "$LINENO"
+
+##全角の数字##
 out=$(echo １０００ | ./money_rate)
 result="1235ドル 51セント
 565ユーロ 23セント
@@ -74,7 +81,8 @@ result="13ドル 59セント
 148ウォン 96チョン"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
-#異常な入力
+
+####異常な入力###
 #文字
 out=$(echo あ | ./money_rate)
 [ "$?" = 1 ] || ng "$LINENO"
@@ -92,6 +100,24 @@ out=$(echo -1 | ./money_rate)
 
 #小数の入力(円の値を入力してほしいので小数はプログラムの趣旨的に異常な入力)
 out=$(echo 1.1 | ./money_rate)
+[ "$?" = 1 ] || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
+
+out=$(echo １．０００ | ./money_rate)
+[ "$?" = 1 ] || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
+
+#記号と数字
+out=$(echo [10] | ./money_rate)
+[ "$?" = 1 ] || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
+
+#階乗は認識しません
+out=$(echo 5! | ./money_rate)
+[ "$?" = 1 ] || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
+
+out=$(echo {10} | ./money_rate)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
