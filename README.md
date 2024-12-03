@@ -4,9 +4,9 @@
 ## このリポジトリについて
 大学の講義(ロボットシステム学)で作成したものです。  
 現在の為替レート情報を取得し日本円をドル・ユーロ・ウォンに変換する   
-money_rateコマンドを作成しました。
+exchange_rateコマンドを作成しました。
 
-## money_rateコマンド 
+## exchange_rateコマンド 
 ## 概要
  - 入力された値(日本円)をドルとセント・ユーロとセント・ウォンとチョンに変換します
  - 半角でも全角でも変換されます
@@ -31,7 +31,7 @@ $ cd robosys_kadai1
 ## 実行権限の付与
 必要に応じて以下のコマンドで実行権限の付与してください。
 ```
-$ chmod +x money_rate
+$ chmod +x exchange_rate
 ```
 ## Pythonのyfinanceモジュールがインストールされていない場合
 以下のコマンドでインストールをして下さい
@@ -63,7 +63,7 @@ WARNING: Package(s) not found: yfinance
 
 ## 実行例
 ```
- $ echo 1000 | ./money_rate
+ $ echo 1000 | ./exchange_rate
 ```
 6 ドル 61 セント  
 6 ユーロ 26 セント  
