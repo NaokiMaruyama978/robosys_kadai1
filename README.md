@@ -29,7 +29,7 @@ $ git clone https://github.com/NaokiMaruyama978/robosys_kadai1.git
 $ cd robosys_kadai1
 ```
 ## 実行権限の付与
-以下のコマンドで実行権限の付与してください。
+必要に応じて以下のコマンドで実行権限の付与してください。
 ```
 $ chmod +x money_rate
 ```
