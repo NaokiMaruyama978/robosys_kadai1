@@ -1,6 +1,4 @@
 # robosys_kadai1
-
-# robosys_kadai1
 [![test](https://github.com/NaokiMaruyama978/robosys_kadai1/actions/workflows/test.yml/badge.svg)](https://github.com/NaokiMaruyama978/robosys_kadai1/actions)
 
 ## このリポジトリについて
