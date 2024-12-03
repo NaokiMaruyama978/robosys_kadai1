@@ -1,0 +1,57 @@
+#!/usr/bin/python3
+# SPDX-FileCopyrightText: 2024 Naoki Maruyama
+# SPDX-License-Identifier: BSD-3-Clause
+
+import yfinance as yf
+import datetime
+import sys
+import os
+
+def get_fx_rate(ticker):
+    # money_rate_test.bashからレート値を取得
+    test_rate = os.getenv(f"TEST_RATE_{ticker}")
+    if test_rate:
+        return float(test_rate)
+
+    # 通常の為替レート取得
+    return yf.Ticker(ticker).history(period="1d").Close[0]
+
+def main(value):
+    
+    fx_rate = get_fx_rate("JPYUSD") #ドル
+    fx_rate2 = get_fx_rate("JPYEUR") #ユーロ
+    fx_rate3 = get_fx_rate("JPYKRW") #ウォン
+
+    doll = round(value * fx_rate,2) #小数点第3位以下を丸める
+    intdoll = int(doll) #結果の整数部分を抜き出す
+    dollcent = round((((value * fx_rate) - intdoll) * 100)) #結果から整数値を引き100掛ける事でセントに変換
+    
+    eur = round(value * fx_rate2,2) #小数点第3位以下を丸める
+    inteur = int(eur) #結果の整数部分を抜き出す
+    eurcent =  round((((value * fx_rate2) - inteur) * 100))#結果から整数値を引き100掛ける事でセントに変換
+    
+    won = round(value * fx_rate3,2) #小数点第3位以下を丸める
+    intwon = int(won) #結果の整数部分を抜き出す
+    wonjeon = round((((value * fx_rate3) - intwon) * 100))#結果から整数値を引き100掛ける事でjeon(チョン)に変換
+    # 結果を表示
+    print ("{}ドル {}セント".format(intdoll,dollcent))
+    print ("{}ユーロ {}セント".format(inteur,eurcent))
+    print ("{}ウォン {}チョン".format(intwon,wonjeon))
+
+if not sys.stdin.isatty():
+    try:
+        value = float(sys.stdin.readline().strip())
+        if value >= 0 and value - int(value) == 0 :
+            main(value)
+        else:
+            sys.exit(1)
+    except:
+        sys.exit(1)
+
+elif len(sys.argv) >= 0 :
+    try:
+        value = float(sys.argv[1])
+        if value - int(value) == 0 :
+            main(value)
+    except:
+        sys.exit(1)
