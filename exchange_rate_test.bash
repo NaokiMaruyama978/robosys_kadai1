@@ -24,61 +24,61 @@ res=0
 ###正常な入力###
 ##半角の数字##
 out=$(echo 1000 | ./exchange_rate)
-result="1235ドル 51セント
-565ユーロ 23セント
-13542ウォン 25チョン"
+result="USD 1235.51
+EUR 565.23
+KRW 13542.25"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
 out=$(echo 0 | ./exchange_rate)
-result="0ドル 0セント
-0ユーロ 0セント
-0ウォン 0チョン"
+result="USD 0.0
+EUR 0.0
+KRW 0.0"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
 #計算結果小数第3位が5以上だと繰り上げられる
 out=$(echo 1 | ./exchange_rate)
-result="1ドル 24セント
-0ユーロ 57セント
-13ウォン 54チョン"
+result="USD 1.24
+EUR 0.57
+KRW 13.54"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
 out=$(echo 11 | ./exchange_rate)
-result="13ドル 59セント
-6ユーロ 22セント
-148ウォン 96チョン"
+result="USD 13.59
+EUR 6.22
+KRW 148.96"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
 #小数以下0の入力
 out=$(echo 1.000 | ./exchange_rate)
-result="1ドル 24セント
-0ユーロ 57セント
-13ウォン 54チョン"
+result="USD 1.24
+EUR 0.57
+KRW 13.54"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
 ##全角の数字##
 out=$(echo １０００ | ./exchange_rate)
-result="1235ドル 51セント
-565ユーロ 23セント
-13542ウォン 25チョン"
+result="USD 1235.51
+EUR 565.23
+KRW 13542.25"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
 out=$(echo ０ | ./exchange_rate)
-result="0ドル 0セント
-0ユーロ 0セント
-0ウォン 0チョン"
+result="USD 0.0
+EUR 0.0
+KRW 0.0"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
 #計算結果小数第3位が5以上だと繰り上げられる
 out=$(echo １ | ./exchange_rate)
-result="1ドル 24セント
-0ユーロ 57セント
-13ウォン 54チョン"
+result="USD 1.24
+EUR 0.57
+KRW 13.54"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
 out=$(echo １１ | ./exchange_rate)
-result="13ドル 59セント
-6ユーロ 22セント
-148ウォン 96チョン"
+result="USD 13.59
+EUR 6.22
+KRW 148.96"
 [ "${out}" = "${result}" ] || ng "$LINENO"
 
 
