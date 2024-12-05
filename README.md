@@ -65,9 +65,9 @@ WARNING: Package(s) not found: yfinance
 ```
  $ echo 1000 | ./exchange_rate
 ```
-6 ドル 61 セント  
-6 ユーロ 26 セント  
-9215 ウォン 86 チョン
+USD 6.61  
+EUR 6.26  
+KRW 9215.86
 
 ## 動作環境  
 ### 必要なソフトウェア
